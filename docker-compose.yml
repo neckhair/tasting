@@ -8,6 +8,15 @@ services:
     - .:/app
     depends_on:
     - mysql
+    - webpack
+
+  webpack:
+    build: .
+    command: bin/webpack-dev-server
+    ports:
+    - 3035:3035
+    volumes:
+    - .:/app
 
   mysql:
     image: mysql:8.0
