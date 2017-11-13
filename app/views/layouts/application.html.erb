@@ -4,11 +4,22 @@
     <title>App</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <section class="section">
+      <div class="container">
+        <% if notice.present? %>
+          <p id="notice" class="notification is-primary"><%= notice %></p>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </section>
+
   </body>
 </html>

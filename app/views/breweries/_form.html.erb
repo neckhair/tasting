@@ -1,6 +1,6 @@
 <%= form_with(model: brewery, local: true) do |form| %>
   <% if brewery.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="notification is-danger">
       <h2><%= pluralize(brewery.errors.count, "error") %> prohibited this brewery from being saved:</h2>
 
       <ul>
@@ -12,16 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :brewery_name %>
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, id: :brewery_name, class: "input" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :country_code %>
-    <%= form.country_select :country_code, priority_countries: ["CH", "US", "DE"] %>
+    <%= form.label :country_code, class: "label" %>
+    <div class="control has-icons-left">
+      <span class="select">
+        <%= form.country_select :country_code, { priority_countries: ["CH", "US", "DE"] } %>
+      </span>
+      <span class="icon is-small is-left">
+        <i class="fa fa-globe"></i>
+      </span>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'button is-primary' %>
+    <%= link_to 'Back', breweries_path, class: 'button is-secondary' %>
   </div>
 <% end %>
