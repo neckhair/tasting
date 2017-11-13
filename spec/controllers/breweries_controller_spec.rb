@@ -68,7 +68,7 @@ RSpec.describe BreweriesController, type: :controller do
         brewery = Brewery.create! valid_attributes
         put :update, params: { id: brewery.to_param, brewery: new_attributes }, session: valid_session
         brewery.reload
-        skip("Add assertions for updated state")
+        expect(brewery.name).to eq 'Haarige Kuh'
       end
 
       it "redirects to the brewery" do
