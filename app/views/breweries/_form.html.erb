@@ -16,6 +16,11 @@
     <%= form.text_field :name, id: :brewery_name %>
   </div>
 
+  <div class="field">
+    <%= form.label :country_code %>
+    <%= form.country_select :country_code, priority_countries: ["CH", "US", "DE"] %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
