@@ -1,4 +1,5 @@
 <h1 class="title"><%= @brewery.name %></h1>
+<h2 class="subtitle"><%= flag_icon(@brewery.country_code.downcase) %> <%= @brewery.country_name %></h2>
 
 <table class="table is-striped is-fullwidth is-bordered">
   <thead>

@@ -13,7 +13,7 @@
     <% @breweries.each do |brewery| %>
       <tr>
         <td> <%= link_to brewery.name, brewery %> </td>
-        <td> <%= brewery.country_name %> </td>
+        <td> <%= flag_icon(brewery.country_code.downcase) %> <%= brewery.country_name %> </td>
         <td><%= link_to 'Edit', edit_brewery_path(brewery) %></td>
         <td><%= link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
