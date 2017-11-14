@@ -1,0 +1,50 @@
+<%= form_with(model: [@brewery, beer], local: true) do |form| %>
+  <% if beer.errors.any? %>
+    <div id="error_explanation" class="notification is-danger">
+      <h2><%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
+
+      <ul>
+      <% beer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, id: :beer_name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :abv, class: "label" %>
+    <div class="control">
+      <%= form.text_field :abv, id: :beer_abv, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :ibu, class: "label" %>
+    <div class="control">
+    <%= form.number_field :ibu, id: :beer_ibu, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes, class: "label" %>
+    <div class="control">
+    <%= form.text_area :notes, id: :beer_notes, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit value: "Save", class: 'button is-link' %>
+    </div>
+    <div class="control">
+      <%= link_to 'Cancel', @brewery, class: 'button is-text' %>
+    </div>
+  </div>
+<% end %>

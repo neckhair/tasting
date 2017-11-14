@@ -1,4 +1,6 @@
 class Brewery < ApplicationRecord
+  has_many :beers, dependent: :destroy
+
   validates :name, presence: true
 
   def country_name

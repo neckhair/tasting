@@ -1,0 +1,25 @@
+<h1 class="title"><%= @beer.name %></h1>
+<h2 class="subtitle"><%= @brewery.name %></h2>
+
+<p>
+  <strong>Abv:</strong>
+  <%= @beer.abv %>
+</p>
+
+<p>
+  <strong>Ibu:</strong>
+  <%= @beer.ibu %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @beer.notes %>
+</p>
+
+<p>
+  <strong>Brewery:</strong>
+  <%= @beer.brewery.name %>
+</p>
+
+<%= link_to 'Edit', edit_brewery_beer_path(@brewery, @beer) %> |
+<%= link_to 'Back', @brewery %>

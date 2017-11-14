@@ -1,14 +1,32 @@
-<h1 class="title">Brewery</h1>
+<h1 class="title"><%= @brewery.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @brewery.name %>
-</p>
+<table class="table is-striped is-fullwidth is-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Abv</th>
+      <th>Ibu</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Country:</strong>
-  <%= @brewery.country_name %>
-</p>
+  <tbody>
+    <% @beers.each do |beer| %>
+      <tr>
+        <td><%= link_to beer.name, [@brewery, beer] %></td>
+        <td><%= beer.abv %></td>
+        <td><%= beer.ibu %></td>
+        <td><%= link_to 'Edit', edit_brewery_beer_path(@brewery, beer) %></td>
+        <td><%= link_to 'Destroy', [@brewery, beer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
-<%= link_to 'Back', breweries_path %>
+<div class="level">
+  <div class="field is-grouped">
+    <p class="control"> <%= link_to 'Edit', edit_brewery_path(@brewery), class: "button is-link" %> </p>
+    <p class="control"> <%= link_to 'Back', breweries_path, class: "button is-link" %> </p>
+    <p class="control"> <%= link_to 'Add Beer', new_brewery_beer_path(@brewery), class: "button" %> </p>
+  </div>
+</div>

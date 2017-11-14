@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113195559) do
+ActiveRecord::Schema.define(version: 20171114121209) do
+
+  create_table "beers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.decimal "abv", precision: 10
+    t.integer "ibu"
+    t.text "notes"
+    t.bigint "brewery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brewery_id"], name: "index_beers_on_brewery_id"
+  end
 
   create_table "breweries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -19,4 +30,5 @@ ActiveRecord::Schema.define(version: 20171113195559) do
     t.string "country_code", limit: 3
   end
 
+  add_foreign_key "beers", "breweries"
 end
