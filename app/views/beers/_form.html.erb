@@ -19,6 +19,15 @@
   </div>
 
   <div class="field">
+    <%= form.label :category, class: "label" %>
+    <div class="control">
+      <span class="select">
+        <%= form.grouped_collection_select :subcategory_id, Category.all, :subcategories, :name, :id, :fullname %>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
     <%= form.label :abv, class: "label" %>
     <div class="control">
       <%= form.text_field :abv, id: :beer_abv, class: "input" %>

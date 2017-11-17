@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117083244) do
+ActiveRecord::Schema.define(version: 20171117092939) do
 
   create_table "beers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 20171117083244) do
     t.bigint "brewery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "subcategory_id"
     t.index ["brewery_id"], name: "index_beers_on_brewery_id"
+    t.index ["subcategory_id"], name: "index_beers_on_subcategory_id"
   end
 
   create_table "breweries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -50,5 +52,6 @@ ActiveRecord::Schema.define(version: 20171117083244) do
   end
 
   add_foreign_key "beers", "breweries"
+  add_foreign_key "beers", "subcategories"
   add_foreign_key "subcategories", "categories"
 end

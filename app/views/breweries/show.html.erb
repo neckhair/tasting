@@ -5,8 +5,9 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Abv</th>
-      <th>Ibu</th>
+      <th>ABV</th>
+      <th>IBU</th>
+      <th>Style</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -15,8 +16,9 @@
     <% @beers.each do |beer| %>
       <tr>
         <td><%= link_to beer.name, [@brewery, beer] %></td>
-        <td><%= beer.abv %></td>
+        <td><%= number_to_percentage beer.abv, precision: 1 %></td>
         <td><%= beer.ibu %></td>
+        <td><%= beer.subcategory.name %></td>
         <td><%= link_to 'Edit', edit_brewery_beer_path(@brewery, beer) %></td>
         <td><%= link_to 'Destroy', [@brewery, beer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
