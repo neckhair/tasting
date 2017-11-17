@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :breweries do
     resources :beers
   end
+
+  resources :categories, only: :index
 end
