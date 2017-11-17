@@ -12,6 +12,7 @@ gem 'rails', '~> 5.1.4'
 
 gem 'country_select', require: 'country_select_without_sort_alphabetical'
 gem 'flag-icons-rails'
+gem 'nokogiri' # to seed the bjcp styles from the xml
 
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'

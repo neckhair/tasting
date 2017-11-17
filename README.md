@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a little web application to manage beer tastings.
 
-Things you may want to cover:
+## BJCP Categories
 
-* Ruby version
+For the beer styles we use the official BJCP Style Guide. You can load the categories into the database by using the following command:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    bin/rails tastings:bjcp_styles
