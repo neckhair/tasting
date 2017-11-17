@@ -1,0 +1,24 @@
+<h1 class="title">BJCP Styles</h1>
+
+<p>
+  Find more information about these styles on the offical <%= link_to 'BJCP website', 'https://www.bjcp.org/stylecenter.php' %>.
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th> Number </th>
+      <th> Name </th>
+      <th> Subcategories </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <th> <%= category.bjcp_number %> </th>
+        <td> <%= category.name %> </td>
+        <td> <%= category.subcategories.pluck(:name).join(', ') %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

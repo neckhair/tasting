@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114121209) do
+ActiveRecord::Schema.define(version: 20171117083244) do
 
   create_table "beers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -30,5 +30,25 @@ ActiveRecord::Schema.define(version: 20171114121209) do
     t.string "country_code", limit: 3
   end
 
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "bjcp_number"
+    t.string "name"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bjcp_number"], name: "index_categories_on_bjcp_number"
+  end
+
+  create_table "subcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "bjcp_number"
+    t.string "name"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bjcp_number"], name: "index_subcategories_on_bjcp_number"
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
+  end
+
   add_foreign_key "beers", "breweries"
+  add_foreign_key "subcategories", "categories"
 end
