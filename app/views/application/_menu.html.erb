@@ -1,0 +1,11 @@
+<aside class="menu">
+  <p class="menu-label">General</p>
+
+  <ul class="menu-list">
+    <li>
+      <%= link_to 'Breweries',
+                  breweries_path,
+                  class: ("is-active" if request.path =~ /breweries/ || current_page?(root_path)) %>
+    </li>
+  </ul>
+</aside>
