@@ -1,0 +1,38 @@
+<div class="level">
+  <div class="level-left">
+    <div>
+      <h1 class="title"><%= @supplier.name %></h1>
+    </div>
+  </div>
+
+  <div class="level-right">
+    <div class="field has-addons">
+      <p class="control">
+        <%= link_to edit_supplier_path(@supplier), class: "button" do %>
+          <span class="icon is-small">
+            <i class="fa fa-pencil"></i>
+          </span>
+          <span>Edit</span>
+        <% end %>
+      </p>
+      <p class="control">
+        <%= link_to suppliers_path, class: "button" do %>
+          <span class="icon is-small">
+            <i class="fa fa-arrow-left"></i>
+          </span>
+          <span>Back</span>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<p class="level">
+  <%= link_to @supplier.url, @supplier.url, target: "_blank" %>
+</p>
+
+<% if @supplier.notes.present? %>
+  <p class="box">
+    <%= @supplier.notes %>
+  </p>
+<% end %>

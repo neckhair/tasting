@@ -9,7 +9,14 @@
     </li>
 
     <li>
-      <%= link_to 'Categories',
+      <%= link_to 'Suppliers',
+                  suppliers_path,
+                  class: ("is-active" if request.path =~ /^\/suppliers/) %>
+
+    </li>
+
+    <li>
+      <%= link_to 'Styles',
                   categories_path,
                   class: ("is-active" if request.path =~ /^\/categories/) %>
 

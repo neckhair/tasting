@@ -44,16 +44,9 @@
   <div class="field">
     <%= form.label :notes, class: "label" %>
     <div class="control">
-    <%= form.text_area :notes, id: :beer_notes, class: "input" %>
+    <%= form.text_area :notes, id: :beer_notes, class: "textarea" %>
     </div>
   </div>
 
-  <div class="field is-grouped">
-    <div class="control">
-      <%= form.submit value: "Save", class: 'button is-link' %>
-    </div>
-    <div class="control">
-      <%= link_to 'Cancel', @brewery, class: 'button is-text' %>
-    </div>
-  </div>
+  <%= render "form_actions", form: form, back_to: @brewery %>
 <% end %>

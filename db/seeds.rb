@@ -10,3 +10,6 @@ brewery_2.beers.create! name: 'Punk IPA', abv: 5.6, ibu: 45,
                         subcategory: Subcategory.find_by(name: 'American IPA')
 brewery_2.beers.create! name: 'Dead Pony Club', abv: 3.8, ibu: 25,
                         subcategory: Subcategory.find_by(name: 'American Pale Ale')
+
+supplier_1 = Supplier.create! name: 'Drinks of the World', url: 'https://beerworld.ch'
+supplier_2 = Supplier.create! name: 'Wittich', url: 'http://www.biershop-wittich.ch'

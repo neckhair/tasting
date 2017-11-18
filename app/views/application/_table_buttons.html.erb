@@ -1,0 +1,8 @@
+<div class="buttons has-addons is-right">
+  <%= link_to [:edit, object], class: "button is-small", title: "Edit" do %>
+    <span class="icon"> <i class="fa fa-pencil"></i> </span>
+  <% end %>
+  <%= link_to object, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-small is-danger", title: "Delete" do %>
+    <span class="icon"> <i class="fa fa-trash"></i> </span>
+  <% end %>
+</div>
