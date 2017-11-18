@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe BeersController, type: :controller do
-  let(:brewery) { Brewery.create name: 'Omnipollo' }
+  let(:brewery) { create :brewery }
+  let(:subcategory) { create :subcategory }
 
-  let(:valid_attributes) { { name: 'Nebuchadnezzar', brewery_id: brewery.id } }
+  let(:valid_attributes) { { name: 'Nebuchadnezzar', brewery_id: brewery.id, subcategory_id: subcategory.id } }
 
   let(:invalid_attributes) { { name: '' } }
 
