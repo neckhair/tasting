@@ -1,0 +1,7 @@
+<%%= simple_form_for @<%= singular_table_name %> do |form| %>
+  <%- attributes.each do |attribute| -%>
+    <%%= form.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+  <%- end -%>
+
+  <%%= render "form_actions", form: form, back_to: <%= singular_table_name %> %>
+<%% end %>

@@ -1,52 +1,13 @@
-<%= form_with(model: [@brewery, beer], local: true) do |form| %>
-  <% if beer.errors.any? %>
-    <div id="error_explanation" class="notification is-danger">
-      <h2><%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
-
-      <ul>
-      <% beer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= simple_form_for [@brewery, beer] do |form| %>
+  <%= form.input :name %>
+  <%= form.input :subcategory_id do %>
+    <span class="select">
+      <%= form.grouped_collection_select :subcategory_id, Category.all, :subcategories, :name, :id, :fullname %>
+    </span>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name, class: "label" %>
-    <div class="control">
-      <%= form.text_field :name, id: :beer_name, class: "input" %>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= form.label :category, class: "label" %>
-    <div class="control">
-      <span class="select">
-        <%= form.grouped_collection_select :subcategory_id, Category.all, :subcategories, :name, :id, :fullname %>
-      </span>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= form.label :abv, class: "label" %>
-    <div class="control">
-      <%= form.text_field :abv, id: :beer_abv, class: "input" %>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= form.label :ibu, class: "label" %>
-    <div class="control">
-    <%= form.number_field :ibu, id: :beer_ibu, class: "input" %>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= form.label :notes, class: "label" %>
-    <div class="control">
-    <%= form.text_area :notes, id: :beer_notes, class: "textarea" %>
-    </div>
-  </div>
+  <%= form.input :abv %>
+  <%= form.input :ibu %>
+  <%= form.input :notes, input_html: { class: "textarea" } %>
 
   <%= render "form_actions", form: form, back_to: @brewery %>
 <% end %>

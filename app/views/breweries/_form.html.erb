@@ -1,23 +1,5 @@
-<%= form_with(model: brewery, local: true) do |form| %>
-  <% if brewery.errors.any? %>
-    <div id="error_explanation" class="notification is-danger">
-      <h2><%= pluralize(brewery.errors.count, "error") %> prohibited this brewery from being saved:</h2>
-
-      <ul>
-      <% brewery.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name, class: "label" %>
-    <div class="control">
-      <%= form.text_field :name, id: :brewery_name, class: "input" %>
-    </div>
-  </div>
-
+<%= simple_form_for brewery do |form| %>
+  <%= form.input :name %>
   <div class="field">
     <%= form.label :country_code, class: "label" %>
     <div class="control has-icons-left">
@@ -30,8 +12,5 @@
     </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit class: 'button is-primary' %>
-    <%= link_to 'Back', breweries_path, class: 'button is-secondary' %>
-  </div>
+  <%= render "form_actions", form: form, back_to: breweries_path %>
 <% end %>
