@@ -1,0 +1,9 @@
+@import 'bulma/bulma';
+
+.field_with_errors .input {
+  @extend .input.is-danger;
+}
+
+.field_with_errors .textarea {
+  @extend .textarea.is-danger;
+}
