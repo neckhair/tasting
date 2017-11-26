@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118120926) do
+ActiveRecord::Schema.define(version: 20171121122256) do
 
   create_table "beers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -59,7 +59,19 @@ ActiveRecord::Schema.define(version: 20171118120926) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "supplies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "beer_id"
+    t.bigint "supplier_id"
+    t.integer "price_cents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beer_id"], name: "index_supplies_on_beer_id"
+    t.index ["supplier_id"], name: "index_supplies_on_supplier_id"
+  end
+
   add_foreign_key "beers", "breweries"
   add_foreign_key "beers", "subcategories"
   add_foreign_key "subcategories", "categories"
+  add_foreign_key "supplies", "beers"
+  add_foreign_key "supplies", "suppliers"
 end

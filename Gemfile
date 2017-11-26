@@ -5,13 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 
 gem 'country_select', require: 'country_select_without_sort_alphabetical'
 gem 'flag-icons-rails'
+gem 'money-rails'
 gem 'nokogiri' # to seed the bjcp styles from the xml
 gem 'simple_form'
 
