@@ -21,7 +21,7 @@ RUN    apt-get update \
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
-RUN bundle install -j2
+RUN bundle install -j $(nproc)
 
 COPY package.json yarn.lock ./
 RUN yarn install
