@@ -31,6 +31,27 @@
   <%= link_to @supplier.url, @supplier.url, target: "_blank" %>
 </p>
 
+<% if @supplier.supplies.any? %>
+  <div class="level">
+    <table class="table is-narrow is-striped">
+      <thead>
+        <tr>
+          <th colspan="3">Beers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @supplier.supplies.joins(beer: :brewery).order("breweries.name, beers.name").each do |supply| %>
+          <tr>
+            <td><%= supply.beer.name %> (<%= supply.beer.brewery.name %>)</td>
+            <td><%= humanized_money supply.price, no_cents_if_whole: false %></td>
+            <td><%= render 'table_buttons', object: [supply.beer, supply] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+
 <% if @supplier.notes.present? %>
   <p class="box">
     <%= @supplier.notes %>

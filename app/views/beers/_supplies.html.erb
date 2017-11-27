@@ -11,7 +11,7 @@
       <% @beer.supplies.each do |supply| %>
       <tr>
         <td>
-          <%= supply.supplier.name %>
+          <%= link_to supply.supplier.name, supply.supplier %>
         </td>
         <td>
           <%= number_to_currency supply.price, unit: 'CHF ' %>
