@@ -1,0 +1,15 @@
+<%= simple_form_for [@beer, @supply] do |form| %>
+  <%= form.input :supplier_id do %>
+    <span class="select">
+      <%= form.select :supplier_id, Supplier.order(:name).pluck(:name, :id) %>
+    </span>
+  <% end %>
+  <%= form.input :price do %>
+    <div class="field has-addons">
+      <p class="control"> <%= form.text_field :price, class: "input" %> </p>
+      <p class="control"> <a class="button is-static"> CHF </a> </p>
+    </div>
+  <% end %>
+
+  <%= render "form_actions", form: form, back_to: [@beer.brewery, @beer] %>
+<% end %>

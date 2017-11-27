@@ -12,7 +12,7 @@ RSpec.describe SuppliesController, type: :controller do
   describe "GET #index" do
     it "returns a success response" do
       supply = create :supply
-      get :index, params: { beer_id: supply.beer.id }, session: valid_session
+      get :index, params: { beer_id: supply.beer.id, format: :json }, session: valid_session
       expect(response).to be_success
     end
   end
@@ -20,7 +20,7 @@ RSpec.describe SuppliesController, type: :controller do
   describe "GET #show" do
     it "returns a success response" do
       supply = create :supply
-      get :show, params: { beer_id: supply.beer.id, id: supply.to_param }, session: valid_session
+      get :show, params: { beer_id: supply.beer.id, id: supply.to_param, format: :json }, session: valid_session
       expect(response).to be_success
     end
   end

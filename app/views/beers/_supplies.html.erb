@@ -1,0 +1,27 @@
+<% if @beer.supplies.any? %>
+  <table class="table is-striped is-narrow">
+    <thead>
+      <tr>
+        <th>Supplier</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @beer.supplies.each do |supply| %>
+      <tr>
+        <td>
+          <%= supply.supplier.name %>
+        </td>
+        <td>
+          <%= number_to_currency supply.price, unit: 'CHF ' %>
+        </td>
+        <td>
+          <%= render 'table_buttons', object: [@beer, supply] %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<%= link_to "Add Supplier", new_beer_supply_path(@beer), class: "button is-text" %>
