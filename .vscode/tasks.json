@@ -1,0 +1,57 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "rubocop",
+      "type": "shell",
+      "command": "rubocop --auto-correct ${relativeFile}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never"
+      }
+    },
+    {
+      "label": "rspec",
+      "type": "shell",
+      "command": "docker-compose exec app bin/rspec",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "rspec file",
+      "type": "shell",
+      "command": "docker-compose exec app bin/rspec ${relativeFile}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "rails c",
+      "type": "shell",
+      "command": "docker-compose exec app bin/rails console",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "bundle install",
+      "type": "shell",
+      "command": "docker-compose run --no-deps app bundle install",
+      "problemMatcher": []
+    }
+  ]
+}
