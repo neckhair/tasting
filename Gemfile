@@ -9,6 +9,7 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 
+gem 'bootsnap', require: false
 gem 'country_select', require: 'country_select_without_sort_alphabetical'
 gem 'flag-icons-rails'
 gem 'money-rails'
