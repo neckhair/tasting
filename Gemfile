@@ -10,6 +10,7 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 
 gem 'country_select', require: 'country_select_without_sort_alphabetical'
+gem 'dotenv-rails'
 gem 'flag-icons-rails'
 gem 'money-rails'
 gem 'nokogiri' # to seed the bjcp styles from the xml
