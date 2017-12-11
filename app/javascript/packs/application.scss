@@ -1,0 +1,13 @@
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome';
+
+$variable-columns: false;
+@import '~bulma/bulma';
+
+.field_with_errors .input {
+  @extend .input.is-danger;
+}
+
+.field_with_errors .textarea {
+  @extend .textarea.is-danger;
+}

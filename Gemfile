@@ -16,7 +16,6 @@ gem 'money-rails'
 gem 'nokogiri' # to seed the bjcp styles from the xml
 gem 'simple_form'
 
-gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'

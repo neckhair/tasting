@@ -14,7 +14,6 @@ default: &default
   cache_manifest: false
 
   extensions:
-    - .coffee
     - .erb
     - .js
     - .jsx
@@ -28,6 +27,11 @@ default: &default
     - .gif
     - .jpeg
     - .jpg
+    - .woff
+    - .woff2
+    - .svg
+    - .eot
+    - .ttf
 
 development:
   <<: *default
