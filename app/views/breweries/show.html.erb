@@ -1,14 +1,22 @@
-<h1 class="title"><%= @brewery.name %></h1>
-<h2 class="subtitle"><%= flag_icon(@brewery.country_code.downcase) %> <%= @brewery.country_name %></h2>
+<h1 class="title is-1"><%= @brewery.name %></h1>
+<h3 class="subtitle is-3"><%= @brewery.country_name %></h3>
 
-<table class="table is-striped is-fullwidth is-bordered">
+<div class="level">
+  <div class="level-left">
+    <div class="level-item"><%= link_to 'Edit', edit_brewery_path(@brewery), class: "button" %></div>
+    <div class="level-item"><%= link_to 'Back', breweries_path, class: "button" %></div>
+    <div class="level-item"><%= link_to 'Add Beer', new_brewery_beer_path(@brewery), class: "button is-primary" %></div>
+  </div>
+</div>
+
+<table class="table is-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>ABV</th>
       <th>IBU</th>
       <th>Style</th>
-      <th colspan="2"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -19,17 +27,8 @@
         <td><%= number_to_percentage beer.abv, precision: 1 %></td>
         <td><%= beer.ibu %></td>
         <td><%= beer.subcategory.name %></td>
-        <td><%= link_to 'Edit', edit_brewery_beer_path(@brewery, beer) %></td>
-        <td><%= link_to 'Destroy', [@brewery, beer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= render "table_buttons", object: [@brewery, @beer] %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<div class="level">
-  <div class="field is-grouped">
-    <p class="control"> <%= link_to 'Edit', edit_brewery_path(@brewery), class: "button is-link" %> </p>
-    <p class="control"> <%= link_to 'Back', breweries_path, class: "button is-link" %> </p>
-    <p class="control"> <%= link_to 'Add Beer', new_brewery_beer_path(@brewery), class: "button" %> </p>
-  </div>
-</div>
