@@ -1,0 +1,33 @@
+<nav class="navbar is-link">
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      🍻 Bierkeller
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to 'Beers',
+                  beers_path,
+                  class: ["navbar-item", ("is-active" if request.path =~ /^\/beers/ || current_page?(root_path))] %>
+
+      <%= link_to 'Breweries',
+                  breweries_path,
+                  class: ["navbar-item", ("is-active" if request.path =~ /breweries/)] %>
+
+      <%= link_to 'Suppliers',
+                  suppliers_path,
+                  class: ["navbar-item", ("is-active" if request.path =~ /^\/suppliers/)] %>
+
+      <%= link_to 'Styles',
+                  categories_path,
+                  class: ["navbar-item", ("is-active" if request.path =~ /^\/categories/)] %>
+
+    </div>
+  </div>
+</nav>

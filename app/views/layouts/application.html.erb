@@ -10,18 +10,14 @@
   </head>
 
   <body>
+    <%= render 'navigation' %>
     <section class="section">
-      <div class="columns">
-        <div class="column is-narrow" style="width: 200px;">
-          <%= render "menu" %>
-        </div>
-        <div class="column">
-          <% if notice.present? %>
-            <p id="notice" class="notification is-primary"><%= notice %></p>
-          <% end %>
+      <div class="container">
+        <% if notice.present? %>
+          <p id="notice" class="notification is-primary"><%= notice %></p>
+        <% end %>
 
-          <%= yield %>
-        </div>
+        <%= yield %>
       </div>
     </section>
     <%= stylesheet_pack_tag 'application' %>
