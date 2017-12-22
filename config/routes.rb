@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'breweries#index'
+  root to: 'beers#index'
+
+  resources :beers, only: [:index]
 
   resources :breweries do
-    resources :beers
+    resources :beers, controller: 'breweries/beers'
   end
 
   resources :beers, only: [] do

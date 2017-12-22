@@ -3,9 +3,15 @@
 
   <ul class="menu-list">
     <li>
+      <%= link_to 'Beers',
+                  beers_path,
+                  class: ("is-active" if request.path =~ /^\/beers/ || current_page?(root_path)) %>
+    </li>
+
+    <li>
       <%= link_to 'Breweries',
                   breweries_path,
-                  class: ("is-active" if request.path =~ /breweries/ || current_page?(root_path)) %>
+                  class: ("is-active" if request.path =~ /breweries/) %>
     </li>
 
     <li>
